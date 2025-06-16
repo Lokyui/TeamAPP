@@ -1,0 +1,68 @@
+/* Estilos adicionales para menús avanzados */
+
+.menu-avanzado {
+    width: 100%;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo del botón desplegable */
+  .menu-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--primary-color);
+  }
+  
+  /* Animación para el ícono de flecha */
+  .menu-toggle-button span {
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+  
+  .menu-toggle-button.open span {
+    transform: rotate(180deg);
+  }
+  
+  /* Estilos para la advertencia */
+  .warning-text {
+    color: var(--error-color);
+    font-size: 11px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  /* Estilo para el panel de cálculo */
+  .calculo-panel {
+    background-color: var(--info-box-bg);
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .calculo-panel-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .calculo-panel-info {
+    margin-bottom: 10px;
+  }
+  
+  .calculo-panel .input-group {
+    margin-bottom: 8px;
+  }
+  
+  .calculo-panel .input-label {
+    font-size: 12px;
+  }
+  
+  /* Botón de cálculo */
+  .calculo-button {
+    width: 100%;
+    margin-top: 8px;
+  }

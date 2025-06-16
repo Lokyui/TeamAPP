@@ -1,0 +1,573 @@
+/* Estilos para la calculadora de sueldos */
+
+.publish-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Barra de opciones/switches */
+  .options-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+  }
+  
+  .switch-table-ref {
+    background-color: var(--primary-light);
+  }
+  
+  .switch-modo {
+    background-color: var(--secondary-light);
+  }
+  
+  .switch-db {
+    background-color: rgba(13, 160, 114, 0.1);
+  }
+  
+  /* Layout principal */
+  .layout {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Sección de configuración horizontal */
+  .config-section {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  
+  .input-panel {
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  .ref-panel {
+    flex: 1;
+    min-width: 320px;
+    position: sticky;
+    top: 0;
+    height: 100%;
+    max-height: 98vh;
+    align-self: flex-start;
+    overflow: auto;
+  }
+  
+  .results-section {
+    width: 100%;
+    clear: both;
+    overflow-x: auto;
+  }
+  
+  /* Tarjetas y contenedores */
+  .card {
+    box-shadow: var(--shadow-light);
+    border-radius: 10px;
+    padding: 15px;
+    background-color: var(--card-background);
+    margin-bottom: 15px;
+    height: 100%;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--text-color);
+  }
+  
+  /* Grupos de campo */
+  .fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0 0 15px 0;
+  }
+  
+  .legend {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 10px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-group {
+    margin-bottom: 12px;
+  }
+  
+  .input-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: var(--text-color);
+  }
+  
+  /* Haberes y Descuentos */
+  .sueldo-sections {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .sueldo-section {
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--card-background);
+  }
+  
+  .section-header {
+    padding: 0 8px;
+    border-left: 2px solid var(--primary-color);
+    margin-bottom: 10px;
+  }
+  
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .sueldo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .sueldo-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-color);
+  }
+  
+  .sueldo-resultado {
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .valor {
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  /* Colores según tipo */
+  .haberes-imponibles {
+    border-left: 3px solid var(--primary-color);
+    background-color: var(--primary-light);
+  }
+  
+  .haberes-no-imponibles {
+    border-left: 3px solid var(--secondary-color);
+    background-color: var(--secondary-light);
+  }
+  
+  .descuentos-previsionales {
+    border-left: 3px solid #d83b01;
+    background-color: rgba(216, 59, 1, 0.1);
+  }
+  
+  .otros-descuentos {
+    border-left: 3px solid #107c10;
+    background-color: rgba(16, 124, 16, 0.1);
+  }
+  
+  /* Resumen */
+  .resumen-sueldo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: var(--primary-light);
+    margin-top: 20px;
+  }
+  
+  .resumen-linea {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  
+  .resumen-linea:last-child {
+    border-bottom: none;
+  }
+  
+  .resumen-total {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 10px;
+    margin-top: 5px;
+  }
+  
+  /* Datos de referencia */
+  .dropdown {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    flex: 1;
+    min-width: 100px;
+    height: 38px;
+    font-size: 14px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+  }
+  
+  .dropdown option {
+    background-color: var(--card-background);
+    color: var(--text-color);
+  }
+  
+  /* Base de datos */
+  .db-section {
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .db-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  
+  .db-tab {
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+  }
+  
+  .db-tab-active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .db-table th {
+    background-color: var(--table-header-bg);
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  .db-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--table-cell-border);
+  }
+  
+  .db-table tr:hover {
+    background-color: var(--primary-light);
+  }
+  
+  /* Cajas informativas */
+  .info-box {
+    background-color: var(--info-box-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+  
+  .error-text {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Botones */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 10px 24px;
+    min-width: 140px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .button:hover {
+    background-color: var(--btn-primary-hover);
+  }
+  
+  .info-button {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  .info-button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Cálculo detallado */
+  .calculo-detallado {
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .calculo-seccion {
+    margin-bottom: 15px;
+  }
+  
+  .calculo-titulo {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+  }
+  
+  .calculo-linea {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 13px;
+  }
+  
+  .calculo-formula {
+    font-family: monospace;
+    background-color: var(--info-box-bg);
+    padding: 5px 8px;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-size: 12px;
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 767px) {
+    .options-bar {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .switch-container {
+      width: 100%;
+      max-width: 280px;
+    }
+    
+    .config-section {
+      flex-direction: column;
+    }
+    
+    .input-panel,
+    .ref-panel {
+      width: 100%;
+    }
+    
+    .sueldo-sections {
+      flex-direction: column;
+    }
+    
+    .sueldo-section {
+      flex: 1 1 100%;
+    }
+    
+    .sueldo-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .config-section {
+      flex-wrap: wrap;
+    }
+    
+    .input-panel {
+      flex: 1 1 100%;
+    }
+    
+    .ref-panel {
+      flex: 1 1 100%;
+    }
+    
+    .sueldo-section {
+      flex: 1 1 calc(50% - 15px);
+    }
+  }
+  
+  /* Estilos específicos del modo oscuro */
+  .dark-mode .table-header {
+    background-color: var(--table-header-bg);
+  }
+  
+  .dark-mode input {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+  
+  .dark-mode .button {
+    background-color: var(--btn-primary-bg);
+  }
+  
+  .dark-mode .empty-state {
+    background-color: var(--empty-state-bg);
+  }
+  
+  .dark-mode .sueldo-section {
+    background-color: var(--card-background);
+  }
+  
+  .dark-mode .haberes-imponibles {
+    background-color: rgba(0, 120, 212, 0.1);
+  }
+  
+  .dark-mode .haberes-no-imponibles {
+    background-color: rgba(92, 92, 214, 0.1);
+  }
+  
+  .dark-mode .descuentos-previsionales {
+    background-color: rgba(216, 59, 1, 0.08);
+  }
+  
+  .dark-mode .otros-descuentos {
+    background-color: rgba(16, 124, 16, 0.08);
+  }
+  
+  .dark-mode .resumen-sueldo {
+    background-color: rgba(0, 120, 212, 0.1);
+  }
+  
+  .dark-mode .calculo-formula {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+  }
+  
+  /* Tablas de resultado y detalles de cálculo */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  .table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 14px;
+    table-layout: fixed;
+    color: var(--text-color);
+  }
+  
+  .table-header {
+    background-color: var(--table-header-bg);
+    font-weight: 600;
+    padding: 10px 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-align: center;
+    font-size: 13px;
+    white-space: nowrap;
+    color: var(--text-color);
+  }
+  
+  .table-cell {
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--table-cell-border);
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-color);
+  }
+  
+  .money-cell {
+    text-align: right;
+    font-family: monospace;
+  }
+
+  
+  .switch-inverso {
+    background-color: rgba(128, 0, 128, 0.1);
+  }
+  
+  .calculo-inverso-section {
+    flex: 2;
+    min-width: 300px;
+  }
